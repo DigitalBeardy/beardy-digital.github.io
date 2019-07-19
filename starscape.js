@@ -5,7 +5,7 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
 
 // watch for browser resizing, reinitialize stars
-window.addEventaListener('resize', function() {
+window.addEventListener('resize', function() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   init();
