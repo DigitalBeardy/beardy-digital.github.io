@@ -1,93 +1,80 @@
-// canvas setup
-const canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const ctx = canvas.getContext('2d');
+class Starscape {
+  constructor(){
+    this.canvas = document.createElement('canvas');
+    this.canvas.classList.add('starscape');
+    document.body.insertAdjacentElement('afterbegin', this.canvas);
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    window.starscapeContext = this.canvas.getContext('2d');
 
-// watch for browser resizing, reinitialize stars
-window.addEventListener('resize', function() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
-});
+    this.stars = {
+      nearStar : { width : 3, speed : 0.2 },
+      midStar : { width : 2, speed : 0.1 },
+      farStar : { width : 1, speed : 0.025 }
+    };
+    this.starArray = [];
 
-
-function Star(x, y, width, speed) {
-  this.x = x;
-  this.y = y;
-  this.width = width;
-  this.speed = speed;
-  this.color = "#fff";
-  
-  this.draw = function() {
-    ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, width, width);
+    this.initialise();
+    this.animate();
+    this.bind();
   }
 
-  this.update = () => {
-    // check bounds
-    if (this.x + this.width > innerWidth) {
-      this.x = 0;
+  initialise = () => {
+    this.starArray = [];
+    for (let i=0; i < 50; ++i) {
+      const x = Math.random() * (window.innerWidth - this.stars.nearStar.width);
+      const y = Math.random() * (window.innerHeight - this.stars.nearStar.width);
+      this.starArray.push(new Star(x, y, this.stars.nearStar.width, this.stars.nearStar.speed));
     }
-    this.x += this.speed;
+    for (let i=0; i < 100; ++i) {
+      const x = Math.random() * (window.innerWidth - this.stars.midStar.width);
+      const y = Math.random() * (window.innerHeight - this.stars.midStar.width);
+      this.starArray.push(new Star(x, y, this.stars.midStar.width, this.stars.midStar.speed));
+    }
+    for (let i=0; i < 350; ++i) {
+      const x = Math.random() * (window.innerWidth - this.stars.farStar.width);
+      const y = Math.random() * (window.innerHeight - this.stars.farStar.width);
+      this.starArray.push(new Star(x, y, this.stars.farStar.width, this.stars.farStar.speed));
+    }
+  }
 
-    this.draw();
+  bind = () => {
+    window.addEventListener('resize', () => {
+      window.starscape.initialise();
+    });    
+  }
+
+  animate = () => {
+    requestAnimationFrame(this.animate);
+    window.starscapeContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var star of this.starArray) {
+      star.update();
+    }
   }
 }
 
-// Star dimensions and speed
-const stars = {
-  nearStar : {
-    width : 3,
-    speed : 0.2
-  },
-  midStar : {
-    width : 2,
-    speed : 0.1
-  },
-  farStar : {
-    width : 1,
-    speed : 0.025
-  }
-};
+class Star {
+  constructor(x, y, width, speed) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.speed = speed;
+    this.colors = ["#fff","#ddd", "#aaa", "#222"];
 
-let starArray = [];
+    this.draw = function() {
+      var colorIndex = Math.floor(Math.random() * 3); 
+      window.starscapeContext.fillStyle = this.colors[colorIndex];
+      window.starscapeContext.fillRect(this.x, this.y, width, width);
+    }
 
-// clear starArray and generate 3 layers of stars randomly
-function init() {
-
-  starArray = [];
-  // nearest stars
-  for (let i=0; i < 50; ++i) {
-    const x = Math.random() * (innerWidth - stars.nearStar.width);
-    const y = Math.random() * (innerHeight - stars.nearStar.width);
-    starArray.push(new Star(x, y, stars.nearStar.width, stars.nearStar.speed));
-  }
-
-  // mid-distance stars
-  for (let i=0; i < 100; ++i) {
-    const x = Math.random() * (innerWidth - stars.midStar.width);
-    const y = Math.random() * (innerHeight - stars.midStar.width);
-    starArray.push(new Star(x, y, stars.midStar.width, stars.midStar.speed));
-  }
-
-  // farthest stars
-  for (let i=0; i < 350; ++i) {
-    const x = Math.random() * (innerWidth - stars.farStar.width);
-    const y = Math.random() * (innerHeight - stars.farStar.width);
-    starArray.push(new Star(x, y, stars.farStar.width, stars.farStar.speed));
+    this.update = () => {
+      if (this.x + this.width > window.innerWidth) {
+        this.x = 0;
+      }
+      this.x += this.speed;
+      this.draw();
+    }
   }
 }
 
-// loop to call update function on each star
-function animate() {
-  requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-  for (var star of starArray) {
-    star.update();
-  }
-}
-
-init();
-animate();
+window.starscape = new Starscape();

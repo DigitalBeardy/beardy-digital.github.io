@@ -2,4 +2,26 @@ body {
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   margin: 0;
   overflow: hidden;
+  padding: 0;
+}
+canvas.starscape {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+h1 {
+  font-size: 48pt;
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+p {
+  text-align: center;
 }
