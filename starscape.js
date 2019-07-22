@@ -24,17 +24,20 @@ class Starscape {
     for (let i=0; i < 50; ++i) {
       const x = Math.random() * (window.innerWidth - this.stars.nearStar.width);
       const y = Math.random() * (window.innerHeight - this.stars.nearStar.width);
-      this.starArray.push(new Star(x, y, this.stars.nearStar.width, this.stars.nearStar.speed));
+      const radius = (Math.random() * 1);
+      this.starArray.push(new Star(x, y, this.stars.nearStar.width, this.stars.nearStar.speed, radius));
     }
     for (let i=0; i < 100; ++i) {
       const x = Math.random() * (window.innerWidth - this.stars.midStar.width);
       const y = Math.random() * (window.innerHeight - this.stars.midStar.width);
-      this.starArray.push(new Star(x, y, this.stars.midStar.width, this.stars.midStar.speed));
+      const radius = (Math.random() * 1);
+      this.starArray.push(new Star(x, y, this.stars.midStar.width, this.stars.midStar.speed, radius));
     }
     for (let i=0; i < 350; ++i) {
       const x = Math.random() * (window.innerWidth - this.stars.farStar.width);
       const y = Math.random() * (window.innerHeight - this.stars.farStar.width);
-      this.starArray.push(new Star(x, y, this.stars.farStar.width, this.stars.farStar.speed));
+      const radius = (Math.random() * 1);
+      this.starArray.push(new Star(x, y, this.stars.farStar.width, this.stars.farStar.speed, radius));
     }
   }
 
@@ -54,17 +57,24 @@ class Starscape {
 }
 
 class Star {
-  constructor(x, y, width, speed) {
+  constructor(x, y, width, speed, radius) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.speed = speed;
+    this.radius = radius;
+    this.angle = 0;
     this.colors = ["#fff","#ddd", "#aaa", "#222"];
 
     this.draw = function() {
       var colorIndex = Math.floor(Math.random() * 3); 
+
+      this.x += this.radius * Math.cos(this.angle * (Math.PI/180));
+      this.y += this.radius * Math.sin(this.angle * (Math.PI/180));
+      this.angle = this.angle + speed;
+
       window.starscapeContext.fillStyle = this.colors[colorIndex];
-      window.starscapeContext.fillRect(this.x, this.y, width, width);
+      window.starscapeContext.fillRect(this.x, this.y, this.width, this.width);
     }
 
     this.update = () => {
