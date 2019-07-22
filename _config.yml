@@ -1,0 +1,55 @@
+url: https://beardy.digital
+
+# Site settings
+title: Beardy Digital
+email: craig@beardy.digital
+description: "Beardy Digital is a software consultancy, specialising in all aspects of software enginnering, from cloud migration, software engineering through to security and dev ops."
+
+
+# Team names, titles and social links
+people:
+- name: Person1
+  pic: 1
+  position: Managing Director and Lead Software Engineer
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
+
+- name: Person2
+  pic: 2
+  position: Director
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: linkedin
+      url: #
+
+- name: 
+  pic: 3
+  position: Position not yet filled
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: google-plus
+      url: #
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: twitter
+    url: https://twitter.com/digitalbeardy
+  - title: facebook
+    url: 
+  - title: github
+    url: 
+
+# Build settings
+markdown: kramdown
+permalink: pretty

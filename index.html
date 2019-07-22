@@ -1,16 +1,20 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="normalize.min.css">    
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <!--starscape is rendered as a canvas here-->
-    <h1>beardy.digital</h1>
-    <p>All enquiries, contact <a href="mailto:craig@beardy.digital">craig@beardy.digital</a></p>
-    <p>beardy digital specialise in all aspects of software engineering, from cloud consultacy, dev ops through to security experts, with experience in many fields from finance, to retail.</p>
-    <p>Previous projects have specialised in AWS, Azure, terraform, docker, dotnetcore, nodejs, bash, selenium, always using the best in class practices, such as test driven development and solid principles</p>
-  <body>
-  <script type="text/javascript" src="starscape.js"></script>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1>Posts</h1>
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
