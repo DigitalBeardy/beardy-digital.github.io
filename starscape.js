@@ -42,9 +42,8 @@ class Starscape {
   }
 
   bind = () => {
-    window.addEventListener('resize', () => {
-      window.starscape.initialise();
-    });    
+    window.addEventListener('resize', () => { window.starscape.initialise(); });
+    window.addEventListener('orientationchange',() => { window.starscape.initialise(); });
   }
 
   animate = () => {
