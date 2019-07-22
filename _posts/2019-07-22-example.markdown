@@ -1,0 +1,13 @@
+---
+title: Example post
+subtitle: An example post for some content I wrote
+layout: default
+modal-id: 6
+date: 2019-07-22
+img: roundicons.png
+thumbnail: roundicons-thumbnail.png
+alt: image-alt
+project-date: July 2019
+category: Web Development
+description: Description
+---
