@@ -8,38 +8,38 @@ description: "Beardy Digital is a software consultancy, specialising in all aspe
 
 # Team names, titles and social links
 people:
-- name: Person1
+- name: Craig Godden-Payne
   pic: 1
-  position: Managing Director and Lead Software Engineer
+  position: Managing Director and Principal Software Engineer
   social:
     - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+      url: https://twitter.com/DigitalBeardy
+    # - title: facebook
+    #   url: #
+    # - title: stack-overflow
+    #   url: #
 
-- name: Person2
+- name: Lucy Godden-Payne
   pic: 2
-  position: Director
+  position: Director and company secretary
   social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: linkedin
-      url: #
+    # - title: twitter
+    #   url: https://twitter.com/DigitalBeardy
+    # - title: facebook
+    #   url: #
+    # - title: linkedin
+    #   url: #
 
-- name: 
+- name: Position not yet filled
   pic: 3
-  position: Position not yet filled
+  position: Contact us for more information
   social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
+    # - title: twitter
+    #   url: #
+    # - title: facebook
+    #   url: #
+    # - title: google-plus
+    #   url: #
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
