@@ -267,9 +267,9 @@ fieldset[disabled] .btn-xl.active {
 
 header {
     text-align: center;
-    color: #fff;
+    color: #000;
     background-attachment: scroll;
-    background-image: url('{{ site.baseurl }}/img/header-bg.jpg');
+    background-image: url('{{ site.baseurl }}/img/header-bg-2.jpg');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -292,6 +292,7 @@ header .intro-text .intro-lead-in {
     font-family: {{ site.data.template.font.secondary }};
     font-size: 22px;
     font-style: italic;
+    font-weight: bold; 
     line-height: 22px;
 }
 
