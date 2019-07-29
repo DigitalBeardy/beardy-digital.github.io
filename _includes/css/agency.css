@@ -292,7 +292,8 @@ header .intro-text .intro-lead-in {
     font-family: {{ site.data.template.font.secondary }};
     font-size: 22px;
     font-style: italic;
-    font-weight: bold; 
+    font-weight: bold;
+     
     line-height: 22px;
 }
 
