@@ -9,6 +9,7 @@ description: "Beardy Digital is a software consultancy, specialising in all aspe
 # Team names, titles and social links
 people:
 - name: Craig Godden-Payne
+  image: img/craig.png
   position: Principal Software Engineer
   social:
     - title: twitter
@@ -19,6 +20,7 @@ people:
       url: #
 
 - name: Lucy Godden-Payne
+  image: img/lucy.png
   position: Company Secretary
   social:
     - title: twitter
